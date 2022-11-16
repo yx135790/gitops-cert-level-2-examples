@@ -6,6 +6,14 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  ignoreDifferences:
+  - kind: Deployment
+    jsonPointers:
+    - /metadata/annotations
+  - kind: Secret
+    jsonPointers:
+    - /data
+      
   project: default
 
   source:
